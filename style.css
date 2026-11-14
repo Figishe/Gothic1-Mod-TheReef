@@ -1,0 +1,115 @@
+@font-face {
+  font-family: "The Reef Serif";
+  src: local("Palatino Linotype"), local("Palatino");
+}
+
+:root {
+  color-scheme: dark;
+  --ink: #0a1418;
+  --text: #f2ecde;
+  --accent: #e6c793;
+  --display-font: "The Reef Serif", Georgia, serif;
+  font-family: system-ui, sans-serif;
+  background: var(--ink);
+  color: var(--text);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; }
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: end center;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 1.25rem 1rem clamp(1.5rem, 5vh, 3.5rem);
+  overflow: hidden;
+  text-align: center;
+}
+
+.hero-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: -2;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(0deg, var(--ink), #0a1418b3 20%, transparent 54%);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  justify-content: center;
+  margin: 1.3rem 0 0;
+  color: var(--accent);
+  font-family: var(--display-font);
+  font-size: clamp(1.05rem, 1.8vw, 1.45rem);
+  font-variant-caps: small-caps;
+  letter-spacing: .12em;
+  line-height: 1.25;
+  text-shadow: 0 2px 6px var(--ink);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  transform: rotate(45deg);
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--display-font);
+  font-size: clamp(3.75rem, 8vw, 7.5rem);
+  font-weight: 400;
+  letter-spacing: .04em;
+  word-spacing: .08em;
+  line-height: .88;
+  text-shadow: 0 2px 24px #060e13, 0 2px 6px #060e13;
+}
+
+h1 span {
+  display: block;
+  margin: 0 0 .55rem .22em;
+  color: var(--accent);
+  font-size: .29em;
+  letter-spacing: .22em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.downloads:not([hidden]) { display: flex; flex-wrap: wrap; justify-content: center; gap: .7rem; }
+.downloads button {
+  min-height: 3.05rem;
+  padding: .65rem 1rem;
+  border: 1px solid #6a7065;
+  border-radius: 2px;
+  background: #182427e8;
+  color: #d9d4c5;
+  font: 550 .87rem system-ui, sans-serif;
+  text-align: center;
+}
+
+.downloads button:first-child { border-color: #9b825e; background: #362e23e8; color: #edd6b3; }
+
+@media (max-width: 680px) {
+  .hero-art { height: 84%; }
+  .hero::before { background: linear-gradient(0deg, var(--ink) 17%, #0a1418e8 26%, transparent 51%); }
+}
+
+@media (max-height: 460px) {
+  h1 { font-size: 3.75rem; }
+  .eyebrow { margin-top: .8rem; }
+}

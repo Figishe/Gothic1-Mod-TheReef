@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://figishe.github.io/Gothic1-Mod-TheReef/sitemap.xml
